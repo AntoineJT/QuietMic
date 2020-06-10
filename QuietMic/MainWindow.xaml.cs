@@ -51,5 +51,11 @@ namespace QuietMic
             mic.Device.ToggleMute();
             RefreshToggleContent(mic);
         }
+
+        private void Listen_Checked(object sender, RoutedEventArgs e)
+        {
+            var mic = (MicDevice) MicList.SelectedItem;
+
+        }
     }
 }
