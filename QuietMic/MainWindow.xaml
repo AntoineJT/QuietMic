@@ -1,0 +1,30 @@
+﻿<Window x:Class="QuietMic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuietMic"
+        mc:Ignorable="d"
+        Title="QuietMic" Height="256" Width="785">
+    <Window.Resources>
+        <DataTemplate x:Key="Test">
+            <Grid/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid RenderTransformOrigin="0.499,0.702" Margin="0,0,0,-1">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="242*"/>
+            <ColumnDefinition Width="475*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Toggle" Content="Toggle content" Grid.Column="2" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="104" Click="Toggle_Click" Height="20"/>
+        <GroupBox Grid.Column="1" Header="Microphone&#xD;&#xA;" HorizontalAlignment="Left" Height="70" Margin="0,65,0,0" VerticalAlignment="Top" Width="226">
+            <ComboBox x:Name="MicList" Margin="0,0,-2,0" VerticalAlignment="Top" Height="26" IsReadOnly="True"/>
+        </GroupBox>
+
+    </Grid>
+</Window>
