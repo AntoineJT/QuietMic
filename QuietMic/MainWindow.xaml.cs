@@ -13,7 +13,7 @@ namespace QuietMic
         {
             InitializeComponent();
             FillMicList();
-            MicDevice mic = MicList.SelectedItem as MicDevice;
+            var mic = (MicDevice) MicList.SelectedItem;
             RefreshToggleContent(mic);
         }
 
@@ -42,25 +42,14 @@ namespace QuietMic
 
         private void Toggle_Click(object sender, RoutedEventArgs e)
         {
-            MicDevice mic = MicList.SelectedItem as MicDevice;
+            var mic = (MicDevice) MicList.SelectedItem;
+            if (mic == null)
+            {
+                Error.FatalErrorMessage("Toggle_Click: mic should not be null");
+                return;
+            }
             mic.Device.ToggleMute();
             RefreshToggleContent(mic);
-        }
-    }
-
-    // TODO Move it in a dedicated class
-    public class MicDevice
-    {
-        public MicDevice(CoreAudioDevice device)
-        {
-            Device = device;
-        }
-
-        public CoreAudioDevice Device { get; }
-        
-        public override string ToString()
-        {
-            return Device.FullName;
         }
     }
 }
