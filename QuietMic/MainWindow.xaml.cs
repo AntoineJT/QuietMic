@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using AudioSwitcher.AudioApi;
 using AudioSwitcher.AudioApi.CoreAudio;
 
@@ -9,15 +10,18 @@ namespace QuietMic
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow Instance { get; private set; }
+
+        public MicDevice CurrentMic => (MicDevice) MicList.SelectedItem;
+
         public MainWindow()
         {
+            Instance = this;
             InitializeComponent();
-            FillMicList();
-            var mic = (MicDevice) MicList.SelectedItem;
-            RefreshToggleContent(mic);
+            InitializeMicList();
         }
 
-        private void FillMicList()
+        private void InitializeMicList()
         {
             var microphones = new CoreAudioController().GetCaptureDevices(DeviceState.Active);
 
@@ -29,27 +33,32 @@ namespace QuietMic
                 if (mic.IsDefaultDevice)
                 {
                     MicList.SelectedItem = device;
+                    RefreshToggleContent();
                 }
             }
 
             MicList.IsReadOnly = true;
         }
 
-        private void RefreshToggleContent(MicDevice mic)
+        public void RefreshToggleContent()
         {
-            Toggle.Content = mic.Device.IsMuted ? "Unmute" : "Mute";
+            Toggle.Content = CurrentMic.Device.IsMuted ? "Unmute" : "Mute";
+        }
+
+        private void MicList_Change(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
+        {
+            RefreshToggleContent();
         }
 
         private void Toggle_Click(object sender, RoutedEventArgs e)
         {
-            var mic = (MicDevice) MicList.SelectedItem;
-            if (mic == null)
+            if (CurrentMic == null)
             {
-                Error.FatalErrorMessage("Toggle_Click: mic should not be null");
+                Error.FatalErrorMessage("Toggle_Click: CurrentMic should not be null");
                 return;
             }
-            mic.Device.ToggleMute();
-            RefreshToggleContent(mic);
+            CurrentMic.Device.ToggleMute();
+            RefreshToggleContent();
         }
     }
 }

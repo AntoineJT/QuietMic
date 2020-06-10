@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Toggle" Content="Toggle content" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="104" Click="Toggle_Click" Height="20" RenderTransformOrigin="0.731,0.45" Grid.Column="1"/>
         <GroupBox Header="Microphone&#xD;&#xA;" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="226">
-            <ComboBox x:Name="MicList" Margin="0,0,-2,0" VerticalAlignment="Top" Height="26" IsReadOnly="True"/>
+            <ComboBox x:Name="MicList" Margin="0,0,-2,0" VerticalAlignment="Top" Height="26" SelectionChanged="MicList_Change"  IsReadOnly="True"/>
         </GroupBox>
 
     </Grid>
