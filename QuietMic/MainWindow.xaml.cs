@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using AudioSwitcher.AudioApi;
 using AudioSwitcher.AudioApi.CoreAudio;
@@ -23,7 +24,11 @@ namespace QuietMic
 
         private void InitializeMicList()
         {
-            var microphones = new CoreAudioController().GetCaptureDevices(DeviceState.Active);
+            var microphones = new CoreAudioController().GetCaptureDevices(DeviceState.Active).ToList();
+            if (microphones.Count == 0)
+            {
+                Error.FatalErrorMessage("You don't have any active microphone! You can't use this application!", "No microphone found!");
+            }
 
             foreach (var mic in microphones)
             {

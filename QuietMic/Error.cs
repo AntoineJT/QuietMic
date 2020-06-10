@@ -6,15 +6,25 @@ namespace QuietMic
 {
     public static class Error
     {
-        public static void ErrorMessage(string message, string title = "")
+        internal const string AppName = "QuietMic";
+
+        internal static void InternalErrorMessage(string message, string errorLabel, string title)
         {
             Debug.Assert(message != null);
-            MessageBox.Show(message, title.Length > 0 ? $"Error! {title}" : "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            Debug.Assert(title != null);
+            
+            var errorTitle = (title.Length > 0) ? $"{errorLabel} {title}" : errorLabel;
+            MessageBox.Show(message, $"[{AppName}] {errorTitle}", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public static void ErrorMessage(string message, string title = "")
+        {
+            InternalErrorMessage(message, "Error!", title);
         }
 
         public static void FatalErrorMessage(string message, string title = "")
         {
-            ErrorMessage(message, title);
+            InternalErrorMessage(message, "Fatal error!", title);
             Environment.Exit(1);
         }
     }
