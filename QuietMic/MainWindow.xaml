@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:QuietMic"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
+        Icon="icon_32x.ico"
         Title="QuietMic" Height="128" Width="372">
     <Window.Resources>
     </Window.Resources>
@@ -19,10 +20,10 @@
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <tb:TaskbarIcon x:Name="myNotifyIcon"
+        <tb:TaskbarIcon x:Name="QuietMicIcon"
                         Visibility="Visible"
                         ToolTipText="QuietMic"
-                        IconSource="/QuietMic;component/favicon.ico"
+                        IconSource="/QuietMic;component/icon_32x.ico"
                         MenuActivation="LeftOrRightClick"
                         PopupActivation="DoubleClick"
         />
