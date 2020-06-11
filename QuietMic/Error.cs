@@ -6,9 +6,9 @@ namespace QuietMic
 {
     public static class Error
     {
-        internal const string AppName = "QuietMic";
+        private const string AppName = "QuietMic";
 
-        internal static void InternalErrorMessage(string message, string errorLabel, string title)
+        private static void InternalErrorMessage(string message, string errorLabel, string title)
         {
             Debug.Assert(message != null);
             Debug.Assert(title != null);
