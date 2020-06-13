@@ -4,7 +4,6 @@ packages/
 QuietMic/bin/
 QuietMic/obj/
 QuietMic/QuietMic.csproj.user
-*.Designer.cs
 *.DotSettings.user
 
 *.bak
