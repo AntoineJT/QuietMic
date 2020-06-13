@@ -69,5 +69,14 @@ namespace QuietMic.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream MicMuted {
+            get {
+                return ResourceManager.GetStream("MicMuted", resourceCulture);
+            }
+        }
     }
 }

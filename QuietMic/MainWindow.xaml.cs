@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using AudioSwitcher.AudioApi;
@@ -31,6 +32,10 @@ namespace QuietMic
             {
                 Dispatcher.Invoke(() =>
                 {
+                    if (PlaySound.IsChecked != null && (bool) PlaySound.IsChecked)
+                    {
+                        new SoundPlayer(Properties.Resources.MicMuted).Play();
+                    }
                     CurrentMic.Device.ToggleMute();
                     RefreshToggleContent();
                 });

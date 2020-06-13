@@ -143,5 +143,8 @@
   <ItemGroup>
     <Resource Include="icon_32x.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MicMuted.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Icon="icon_32x.ico"
-        Title="QuietMic" Height="128" Width="372">
+        Title="QuietMic" Height="160" Width="372">
     <Window.Resources>
     </Window.Resources>
     <Grid RenderTransformOrigin="0.499,0.702" Margin="0,0,0,-1">
@@ -27,9 +27,12 @@
                         MenuActivation="LeftOrRightClick"
                         PopupActivation="DoubleClick"
         />
-        <Button x:Name="Toggle" Content="Toggle content" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="104" Click="Toggle_Click" Height="20" RenderTransformOrigin="0.731,0.45" Grid.Column="1"/>
+        <Button x:Name="Toggle" Content="Toggle content" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="88" Click="Toggle_Click" Height="20" RenderTransformOrigin="0.731,0.45" Grid.Column="1"/>
         <GroupBox Header="Microphone&#xD;&#xA;" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="226">
             <ComboBox x:Name="MicList" Margin="0,0,-2,0" VerticalAlignment="Top" Height="26" SelectionChanged="MicList_Change"  IsReadOnly="True"/>
+        </GroupBox>
+        <GroupBox Header="Configuration" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="332" Margin="10,80,0,0" Grid.ColumnSpan="2">
+            <CheckBox x:Name="PlaySound" Content="Play sound" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,1,0,0" IsChecked="True"/>
         </GroupBox>
 
     </Grid>

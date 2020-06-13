@@ -4,3 +4,9 @@ packages/
 QuietMic/bin/
 QuietMic/obj/
 QuietMic/QuietMic.csproj.user
+*.DotSettings.user
+
+*.bak
+
+# my stuff
+releases/
