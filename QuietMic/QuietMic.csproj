@@ -146,5 +146,8 @@
   <ItemGroup>
     <None Include="Resources\MicMuted.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MicUnmuted.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

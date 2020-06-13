@@ -32,11 +32,13 @@ namespace QuietMic
             {
                 Dispatcher.Invoke(() =>
                 {
+                    var device = CurrentMic.Device;
                     if (PlaySound.IsChecked != null && (bool) PlaySound.IsChecked)
                     {
-                        new SoundPlayer(Properties.Resources.MicMuted).Play();
+                        var sound = device.IsMuted ? Properties.Resources.MicUnmuted : Properties.Resources.MicMuted;
+                        new SoundPlayer(sound).Play();
                     }
-                    CurrentMic.Device.ToggleMute();
+                    device.ToggleMute();
                     RefreshToggleContent();
                 });
             });
