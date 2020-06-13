@@ -15,11 +15,56 @@ namespace QuietMic
 
         public MicDevice CurrentMic => (MicDevice) MicList.SelectedItem;
 
+        private const int HomeKey = 0x24;
+
         public MainWindow()
         {
             Instance = this;
             InitializeComponent();
             InitializeMicList();
+
+            var keyboardHookManager = KeyboardHookManagerSingleton.Instance;
+            keyboardHookManager.Start();
+
+            // let's use alt for now because for some reason control is not working
+            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Alt, HomeKey, () =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    CurrentMic.Device.ToggleMute();
+                    RefreshToggleContent();
+                });
+            });
+
+            /*
+            {
+                Key? previousKey = null;
+                var interceptor = new Interceptor(key =>
+                {
+                    if (previousKey != Key.ControlKey)
+                    {
+                        if (key == Key.ControlKey)
+                        {
+                            previousKey = Key.ControlKey;
+                        }
+                    }
+                    else
+                    {
+                        if (key == Key.Home)
+                        {
+                            previousKey = null;
+                            CurrentMic.Device.ToggleMute();
+                            RefreshToggleContent();
+                        }
+                        else
+                        {
+                            previousKey = key;
+                        }
+                    }
+                });
+                interceptor.Start();
+            }
+            */
         }
 
         private void InitializeMicList()
