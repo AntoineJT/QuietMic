@@ -35,36 +35,6 @@ namespace QuietMic
                     RefreshToggleContent();
                 });
             });
-
-            /*
-            {
-                Key? previousKey = null;
-                var interceptor = new Interceptor(key =>
-                {
-                    if (previousKey != Key.ControlKey)
-                    {
-                        if (key == Key.ControlKey)
-                        {
-                            previousKey = Key.ControlKey;
-                        }
-                    }
-                    else
-                    {
-                        if (key == Key.Home)
-                        {
-                            previousKey = null;
-                            CurrentMic.Device.ToggleMute();
-                            RefreshToggleContent();
-                        }
-                        else
-                        {
-                            previousKey = key;
-                        }
-                    }
-                });
-                interceptor.Start();
-            }
-            */
         }
 
         private void InitializeMicList()
