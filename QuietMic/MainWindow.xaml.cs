@@ -10,7 +10,7 @@ namespace QuietMic
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public static MainWindow Instance { get; private set; }
 
@@ -33,7 +33,7 @@ namespace QuietMic
                 Dispatcher.Invoke(() =>
                 {
                     var device = CurrentMic.Device;
-                    if (PlaySound.IsChecked != null && (bool) PlaySound.IsChecked)
+                    if (CheckBoxUtil.IsTwoDimChecked(PlaySound))
                     {
                         var sound = device.IsMuted ? Properties.Resources.MicUnmuted : Properties.Resources.MicMuted;
                         new SoundPlayer(sound).Play();
