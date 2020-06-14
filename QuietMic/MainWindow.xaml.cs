@@ -16,7 +16,7 @@ namespace QuietMic
 
         public MicDevice CurrentMic => (MicDevice) MicList.SelectedItem;
 
-        private const int HomeKey = 0x24;
+        private const int VkPageUp = 0x21;
 
         public MainWindow()
         {
@@ -28,7 +28,7 @@ namespace QuietMic
             keyboardHookManager.Start();
 
             // let's use alt for now because for some reason control is not working
-            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Alt, HomeKey, () =>
+            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Alt, VkPageUp, () =>
             {
                 Dispatcher.Invoke(() =>
                 {
