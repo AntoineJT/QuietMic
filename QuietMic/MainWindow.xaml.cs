@@ -32,14 +32,12 @@ namespace QuietMic
             {
                 Dispatcher.Invoke(() =>
                 {
-                    var device = CurrentMic.Device;
                     if (CheckBoxUtil.IsTwoDimChecked(PlaySound))
                     {
-                        var sound = device.IsMuted ? Properties.Resources.MicUnmuted : Properties.Resources.MicMuted;
+                        var sound = CurrentMic.Device.IsMuted ? Properties.Resources.MicUnmuted : Properties.Resources.MicMuted;
                         new SoundPlayer(sound).Play();
                     }
-                    device.ToggleMute();
-                    RefreshToggleContent();
+                    ToggleMute("KeyHook");
                 });
             });
         }
@@ -72,6 +70,17 @@ namespace QuietMic
             Toggle.Content = CurrentMic.Device.IsMuted ? "Unmute" : "Mute";
         }
 
+        private void ToggleMute(string calledFrom = "ToggleMute")
+        {
+            if (CurrentMic == null)
+            {
+                Error.FatalErrorMessage($"{calledFrom}: CurrentMic should not be null");
+                return;
+            }
+            CurrentMic.Device.ToggleMute();
+            RefreshToggleContent();
+        }
+
         private void MicList_Change(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
             RefreshToggleContent();
@@ -79,13 +88,7 @@ namespace QuietMic
 
         private void Toggle_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentMic == null)
-            {
-                Error.FatalErrorMessage("Toggle_Click: CurrentMic should not be null");
-                return;
-            }
-            CurrentMic.Device.ToggleMute();
-            RefreshToggleContent();
+            ToggleMute("Toggle_Click");
         }
     }
 }
