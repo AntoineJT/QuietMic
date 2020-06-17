@@ -23,9 +23,3 @@ For now, this application works, but it is really basic. I plan to work on it mo
 ## Screenshots
 
 ![Window screenshot](.images/Screenshots/Window.png)
-
-## Notes
-### File formats
-
-- PDN: [Paint.NET project file](https://www.getpaint.net/index.html)
-- MMPZ: [LLMS project file](https://lmms.io/)
