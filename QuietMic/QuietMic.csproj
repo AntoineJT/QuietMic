@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8857D07C-8227-4AC6-ACA0-6183001DCFE0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <ApplicationIcon>icon_256x.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icons\icon_256x.ico</ApplicationIcon>
     <RootNamespace>QuietMic</RootNamespace>
     <AssemblyName>QuietMic</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -119,6 +119,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -143,13 +144,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon_32x.ico" />
+    <Resource Include="Resources\Icons\icon_32x.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MicMuted.wav" />
+    <None Include="Resources\Sounds\MicMuted.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MicUnmuted.wav" />
+    <None Include="Resources\Sounds\MicUnmuted.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\icon_256x.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
