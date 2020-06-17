@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QuietMic"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Icon="/Resources/Icons/icon_32x.ico"
+        Icon="/Resources/Icons/Icon32x.ico"
         Title="QuietMic" Height="171.333" Width="372">
     <Window.Resources>
     </Window.Resources>
@@ -23,7 +23,7 @@
         <tb:TaskbarIcon x:Name="QuietMicIcon"
                         Visibility="Visible"
                         ToolTipText="QuietMic"
-                        IconSource="/Resources/Icons/icon_32x.ico"
+                        IconSource="/Resources/Icons/Icon32x.ico"
                         MenuActivation="LeftOrRightClick"
                         PopupActivation="DoubleClick">
         </tb:TaskbarIcon>

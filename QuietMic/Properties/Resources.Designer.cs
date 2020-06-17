@@ -63,9 +63,9 @@ namespace QuietMic.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Icon semblable à (Icône).
         /// </summary>
-        internal static System.Drawing.Icon icon_256x {
+        internal static System.Drawing.Icon Icon256x {
             get {
-                object obj = ResourceManager.GetObject("icon_256x", resourceCulture);
+                object obj = ResourceManager.GetObject("Icon256x", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
