@@ -59,9 +59,6 @@
     <Reference Include="AudioSwitcher.AudioApi.CoreAudio, Version=3.0.0.209, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
       <HintPath>..\packages\AudioSwitcher.AudioApi.CoreAudio.3.0.0.1\lib\net40\AudioSwitcher.AudioApi.CoreAudio.dll</HintPath>
     </Reference>
-    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
-    </Reference>
     <Reference Include="NonInvasiveKeyboardHookLibrary, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NonInvasiveKeyboardHookLibrary.1.5.0\lib\net452\NonInvasiveKeyboardHookLibrary.dll</HintPath>
     </Reference>
