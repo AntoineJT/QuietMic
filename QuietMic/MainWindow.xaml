@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuietMic"
-        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         Icon="/Resources/Icons/Icon32x.ico"
         Title="QuietMic" Height="171.333" Width="372">
@@ -20,13 +19,6 @@
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <tb:TaskbarIcon x:Name="QuietMicIcon"
-                        Visibility="Visible"
-                        ToolTipText="QuietMic"
-                        IconSource="/Resources/Icons/Icon32x.ico"
-                        MenuActivation="LeftOrRightClick"
-                        PopupActivation="DoubleClick">
-        </tb:TaskbarIcon>
         <Button x:Name="Toggle" Content="Toggle content" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="88" Click="Toggle_Click" Height="20" RenderTransformOrigin="0.731,0.45" Grid.Column="1"/>
         <GroupBox Header="Microphone&#xD;&#xA;" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="226">
             <ComboBox x:Name="MicList" Margin="0,0,0,0" VerticalAlignment="Top" Height="26" SelectionChanged="MicList_Change"  IsReadOnly="True"/>
